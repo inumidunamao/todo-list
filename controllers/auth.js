@@ -17,16 +17,16 @@ function loginUser(req, res) {
     var password = md5(body.password);
     var email = body.email;
     var Err = null;
-    var done = false;
     Firebase.auth().signInWithEmailAndPassword(email, password).catch(function(err){
         Err = fireErr(err.code);
+    }).then(function(){
         console.log(Err);
+        if (Err) {
+            res.render('login', {ERROR: Err});    
+        } else {    
+            res.redirect('/');
+        }  
     });
-    if (Err) {
-        res.send(Err);    
-    } else {
-        res.redirect('/');
-    }
     
 }
 
@@ -39,12 +39,15 @@ function signupUser(req, res){
     var fullname = body.fullname;
     Firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(err){
         Err = fireErr(err.code);
+    }).then(function(){
+        if (Err) {
+            res.send(Err);
+        } else {
+            res.redirect('/');
+        }
     });
-    if (Err) {
-        res.send(Err);
-    } else {
-        res.redirect('/');
-    }
+    
+    
 }
 
 module.exports = {
