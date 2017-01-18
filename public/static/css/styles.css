@@ -16,11 +16,29 @@ nav {
     width: 100%;
     background-color: #222222;
 }
-
+.msg-box {
+    color : #3377ff;
+    display: none;
+}
+.loading {
+    height: 50px;
+    width:50px;
+}
 #body {
     height: inherit;
     background-color: #F2F2F2;
 }
+.err-div {
+    color:red;
+    font-weight :bolder;
+    width: 70%;
+    margin-left: 15%;
+    display: none;
+    background-color: darksalmon;
+    border-radius: 2%;
+    padding : 10px;
+}
+
 .img-circle {
     border-radius: 50%;
 }

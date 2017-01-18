@@ -2,11 +2,14 @@
     <img src="public/static/images/logo_icon.png" class='large-img-logo img-circle'/>
     <div id="form-view">
         <form >
+            <div class="err-div"></div>
             <input class="input-form" type="email" id="email-login" placeholder="Enter email" name="email" /><br />
             <input class="input-form" type="password" id="pass-login" placeholder="Enter password" name="password" /><br />
-            <button class="btn btn-blue" type="button" onclick="login()">Sign In!</button>
+            <button class="btn btn-blue auth-btn" type="button" onclick="login()">Sign In!</button>
         </form>
-    
-        <div class="err-div">{{{ERROR}}}</div>
+        <div class="msg-box">
+            <img src='public/static/images/loading.gif' class='loading'/>
+            <div class='msg-box-msg'></div>
+        </div>
     </div>
 </div>

@@ -11,3 +11,8 @@ function renderCollection(data) {
 function renderErr(message) {
 	$('.err-div').html('<span>'+message+'</span>');
 }
+
+function renderProcMsg(msg) {
+    $('.msg-box').show();
+    $('.msg-box-msg').html('<span>'+msg+'</span>');
+}

@@ -2,8 +2,13 @@ function login(){
   var email = $('#email-login').val();
   var pass = $('#pass-login').val();
   var data  = {email: email, password : pass};
+  $('.auth-btn').prop('disable', true);
+  renderProcMsg('Please wait...');
   $.post('/auth/loginUser', data, function(return_data){
     if (return_data.status === "err") {
+      $('.auth-btn').prop('disable', false);
+      $('.err-div').show();
+      $('.msg-box').hide();
       renderErr(return_data.message);
     } else {
       window.location = "/";
