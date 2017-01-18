@@ -23,7 +23,8 @@ function loginUser(req, res) {
         console.log(Err);
         if (Err) {
             res.render('login', {ERROR: Err});    
-        } else {    
+        } else {
+            console.log('accepted');
             res.redirect('/');
         }  
     });

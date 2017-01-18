@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <meta charset="utf-8" />
+    <title> Andela-do </title>
+    <link rel="stylesheet" href="/public/static/css/styles.css" type="text/css"/>
 </head>
 <body>
+    <div>
+        <nav>
+            
+        </nav>
+    </div>
     <h2>TODO LIST APP</h2>
     <div>
         {{{body}}}
     </div>
     <script src="/public/static/js/jquery.js"></script>
-    <script>
-        function login(){
-            
-        }
-        function signup(){
-            
-        }
-        function createCollection(url, post_data) {
-            $.post(url, post_data, function(return_data){
-   	 	      done(return_data);
-   	        });
-   	 	      function done(return_data) {
-   	 		     console.log({return_data, post_data});
-            }
-        }
-        
-        function addCard(url, post_data) {
-            $.post(url, post_data, function(return_data){
-   	 	      done(return_data);
-   	        });
-   	 	      function done(return_data) {
-   	 		     console.log({return_data, post_data});
-            }
-        }
+    <script src="/public/static/js/get_req.js"></script>
+    <script src="/public/static/js/post_req.js">
     </script>
+    <script >
+        getCollection('all');
+    </script>
+    
 </body>
 </html>

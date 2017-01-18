@@ -7,8 +7,8 @@ module.exports = {
             var uid = current_user.uid;
             res.render('home', {UID:uid});
         } else {
-            res.redirect('/login');
+            //res.redirect('/login');
         }
-        
+        res.render('home');
     }
 };

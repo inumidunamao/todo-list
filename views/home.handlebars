@@ -1,7 +1,36 @@
 <div>
     TODO LIST APPLICATION
     
-    <h1 onclick="createCollection('/collection/create', {collection_name:'movied    ', user_id:'{{{UID}}}'})" >Create a collection</h1><br />
-    <h1 onclick="addCard('/collection/add_card', {collection_name:'movied', user_id:'{{{UID}}}', card_name:'Movies This Month'})">Add a card to list</h1><br />
-    <a href="#">Add todo tasks</a><br />
+    <h1 >Create a collection</h1>
+    <form >
+        <input type='text' id="coll-name" placeholder='Enter Collection Name' />
+        <button type="button" onclick="createCollection({{{UID}}})">Create Collection</button>
+    </form>
+    <br />
+    <h1 >Add a card to list</h1>
+    <form >
+        <input type='text' id="card-name" placeholder='Enter card name' />
+        <input type='text' id="card-desc" placeholder='Enter card description' />
+        <select id="sel-coll">
+        </select>
+        <button type="button" onclick="addCard({{{UID}}})">Add card</button>
+    </form>
+    <br />
+    
+    <h1 >Add todo tasks</h1>
+     <form >
+        <input type='text' id="task_name" placeholder='Enter task name' />
+        <input type="date" id="date-time" placeholder="Due date" />
+        <select id="sel_card_name">
+        </select>
+         <select id="sel_col">
+        </select>
+        <button type="button" onclick="addToDo({{{UID}}})">Add card</button>
+    </form>
+    <br />
+</div>
+<div>
+    <h1>All Collections</h1>
+    <div id="collection-list"></div>
+    
 </div>

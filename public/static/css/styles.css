@@ -1,0 +1,22 @@
+body {
+    margin : 0;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: aqua;
+}
+a.hover {
+    text-decoration: underline;
+}
+
+nav {
+    height: 50px;
+    width: 100%;
+    background-color: #222222;
+}
+
+@media screen and (max-width: 580px) {
+    
+}
