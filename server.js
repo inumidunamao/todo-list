@@ -1,5 +1,4 @@
 var express = require('express'),
-
     config = require('./server/config'),
     Firebase = require('firebase');
 
@@ -12,4 +11,4 @@ app = config(app);
 
 app.listen (app.get('port'), function(){
     console.log('Running @: http://localhost:'+app.get('port'));
-});
+})

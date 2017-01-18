@@ -10,7 +10,7 @@ var path = require('path'),
 
 
 module.exports = function (app) {
-
+    
     app.use(morgan('dev'));
     app.use(bodyParser.urlencoded({'extend':true}));
     app.use(bodyParser.json());

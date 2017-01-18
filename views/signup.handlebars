@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     {{{views}}}
     <form method="post" action="/auth/signupUser">
         <input type="text" name="fullname" placeholder="Fullname" />
@@ -8,4 +8,20 @@
         <button type="submit">Sign up</button>
     
     </form>
+</div>-->
+<div id="login-view">
+    <img src="public/static/images/logo_icon.png" class='large-img-logo img-circle'/>
+    <div id="form-view">
+        <form >
+            <div class="err-div"></div>
+            <input class="input-form" type="email" id="signup-email" placeholder="Enter email" name="email" /><br />
+            <input class="input-form" type="text" id="signup-username" placeholder="Enter username" name="username" /><br />
+            <input class="input-form" type="password" id="signup-pass" placeholder="Enter password" name="password" /><br />
+            <button class="btn btn-blue auth-btn" type="button" onclick="signup()">Sign Up!</button>
+        </form>
+        <div class="msg-box">
+            <img src='public/static/images/loading.gif' class='loading'/>
+            <div class='msg-box-msg'></div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,32 @@
+<div id="home-view">
+    <div id="menu">
+    </div>
+    <div id="content">
+        <div id="content-wrapper">
+            <div id="bg-img-wrapper">
+                <div id="bg-img">
+                    <img src="/public/static/images/bg-img.jpg" />
+                </div>
+            </div>
+            <div id="cover-div">
+                <div id="coll-title">
+                    <span>{{{name}}}</span>
+                </div>
+                <button class="btn" >Add A Card</button>
+                <form method="post" action="/collection/add_card">
+                    <input type="text" placeholder="Enter name of card" name="card_name" id="create-card-name" class="input-form" /><br />
+                    <input type="text" placeholder="Enter description for card" name="card_desc" id="create-card-desc" class="input-form" /><br />
+                    <input type="hidden" name="user_id" value="{{{UID}}}" />
+                    <input type="hidden" name="collection_key" value="{{{key}}}" />
+                    <button class='btn btn-blue' type="submit">Add Card</button>
+                </form>
+                
+                <h2>Your cards: </h2>
+                <ul class="media-lists">
+                    {{{collections}}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear" onload="getCollection('all')" on></div>
+</div>

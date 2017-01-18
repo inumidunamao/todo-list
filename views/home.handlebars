@@ -1,3 +1,63 @@
-<div>
+<div id="home-view">
+    <div id="menu">
+    </div>
+    <div id="content">
+        <div id="content-wrapper">
+            <div id="bg-img-wrapper">
+                <div id="bg-img">
+                    <img src="public/static/images/bg-img.jpg" />
+                </div>
+            </div>
+            <div id="cover-div">
+                <button class="btn" >Add A Collection</button>
+                <form method="post" action="/collection/create">
+                    <input type="text" name="collection_name" placeholder="Enter name of collection" id="create-coll-name" class="input-form" /><br />
+                    <input type="hidden" name="user_id" placeholder="Enter name of collection" value={{{UID}}} class="input-form" /><br />
+                    <button type="submit" class='btn btn-blue btn-small' >Add!</button>
+                </form>
+                <h2>Your collections: </h2>
+                
+                    {{#each collections}}
+                        <button class="btn" onclick="send('/collection/{{@key}}')">{{name}}<br />cards: {{num_of_cards}}</button>
+                    {{/each}}
+                
+            </div>
+        </div>
+    </div>
+    <div class="clear" onload="getCollection('all')" on></div>
+    <!--
     TODO LIST APPLICATION
+    
+    <h1 >Create a collection</h1>
+    <form >
+        <input type='text' id="coll-name" placeholder='Enter Collection Name' />
+        <button type="button" onclick="createCollection('{{{UID}}}')">Create Collection</button>
+    </form>
+    
+    <br />
+    <h1 >Add a card to list</h1>
+    <form >
+        <input type='text' id="card-name" placeholder='Enter card name' />
+        <input type='text' id="card-desc" placeholder='Enter card description' />
+        <select id="sel-coll">
+            
+        </select>
+
+    </form>
+    <br />
+    
+    <h1 >Add todo tasks</h1>
+     <form >
+        <input type='text' id="task_name" placeholder='Enter task name' />
+        <input type="date" id="date-time" placeholder="Due date" />
+   
+    </form>
+    <br />
+</div>
+<div>
+    <h1>All Collections</h1>
+    <div id="collection-list"></div>
+</div>
+
+-->
 </div>
