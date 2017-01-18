@@ -1,10 +1,10 @@
 <div id="login-view">
-    <img src="public/static/images/logo_icon.png" />
+    <img src="public/static/images/logo_icon.png" class='large-img-logo img-circle'/>
     <div id="form-view">
         <form >
-            <input class="input-form" type="email" id="email-login" placeholder="email" name="email" /><br />
-            <input class="input-form" type="password" id="pass-login" placeholder="password" name="password" /><br />
-            <button type="button" onclick="login()">Submit</button>
+            <input class="input-form" type="email" id="email-login" placeholder="Enter email" name="email" /><br />
+            <input class="input-form" type="password" id="pass-login" placeholder="Enter password" name="password" /><br />
+            <button class="btn btn-blue" type="button" onclick="login()">Sign In!</button>
         </form>
     
         <div class="err-div">{{{ERROR}}}</div>
