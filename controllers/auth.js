@@ -4,15 +4,28 @@ var Firebase = require('../models/firebase'),
 
 
 function login(req, res) {
-    res.render('login', {view:"LOGIN"});
+    var current_user = Firebase.auth().currentUser;
+    if (current_user) {
+        var uid = current_user.uid;
+        res.redirect('/');
+    } else {
+        res.render('login', {view:"LOGIN"});
+    }
 }
 
 function signUp(req, res) {
+    var current_user = Firebase.auth().currentUser;
+    if (current_user) {
+        var uid = current_user.uid;
+        res.redirect('/');
+    } else {
+       res.render('signup', {views:"SIGNUP"});
+    }
     
-    res.render('signup', {views:"SIGNUP"});
 }
 
 function loginUser(req, res) {
+    console.log(req);
     var body = req.body;
     var password = md5(body.password);
     var email = body.email;
@@ -22,7 +35,7 @@ function loginUser(req, res) {
     }).then(function(){
         console.log(Err);
         if (Err) {
-            res.render('login', {ERROR: Err});    
+            res.json({status:"err", message:Err});    
         } else {
             console.log('accepted');
             res.redirect('/');
@@ -35,9 +48,9 @@ function signupUser(req, res){
     var body = req.body;
     var password = md5(body.password);
     var email = body.email;
-    var username = body.username;
+    //var username = body.username;
     Err = null;
-    var fullname = body.fullname;
+    //var fullname = body.fullname;
     Firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(err){
         Err = fireErr(err.code);
     }).then(function(){

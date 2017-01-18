@@ -15,10 +15,21 @@ function create (req, res) {
     res.send("Updated");
 }
 
+function readData(path, callback){
+    Firebase.database().ref(path).once('value').then(callback);
+}
+
 function addCard(req, res) {
-    var cn = req.body.collection_name;
+    var cn = req.body.collection_key;
+    var uid = req.body.user_id;
     var now = Date.now();
     var card_name = req.body.card_name;
+    var card_desc = req.body.card_desc;
+    var path = 'users/'+uid+'/collections/'+cn;
+    readData(path, function(data){
+        console.log(data);
+    });
+    /*
     Firebase.database().ref().child('users/'+req.body.user_id+'/collections').orderByChild('name').equalTo(cn).on('child_added',  function(data){
         console.log(data.key, data.val().name, data.val().num_of_cards);
         var updates = {};
@@ -32,6 +43,7 @@ function addCard(req, res) {
         res.send("Added Card");
         
     });
+    */
 }
 
 function addToDo(req, res){
@@ -154,20 +166,15 @@ function copyCard(req, res){
         var collections = current_user_collections["collections"];
         var source_coll = collections[source.coll_key];
         var source_card = source_coll.cards[source.card_key];
-        //var cn = req.body.collection_name;
-        //var now = Date.now();
-        //var card_name = req.body.card_name;
-      
-            //console.log(data.key, data.val().name, data.val().num_of_cards);
-            var updates = {};
+        var updates = {};
             
-            updates['/collections/' + dest+'/cards/'+source.card_key] = source_card;
-            updates['/collections/' + dest+'/num_of_cards/'] += 1;
-            updates['/users/' + current_uid + '/collections/'+dest+'/cards/'+source.card_key] = source_card;
-            updates['/users/' + current_uid + '/collections/'+dest+'/num_of_cards/'] += 1;
-            Firebase.database().ref().update(updates);
-            res.send("Copied card");
-        
+        updates['/collections/' + dest+'/cards/'+source.card_key] = source_card;
+        updates['/collections/' + dest+'/num_of_cards/'] += 1;
+        updates['/users/' + current_uid + '/collections/'+dest+'/cards/'+source.card_key] = source_card;
+        updates['/users/' + current_uid + '/collections/'+dest+'/num_of_cards/'] += 1;
+        Firebase.database().ref().update(updates);
+        res.send("Copied card");
+
     });
     
 }
@@ -180,5 +187,6 @@ module.exports = {
     get_collection_all: getCollectionAll,
     get_collection_key: getCollectionKey,
     get_cards_all: getCardsAll,
-    copy_card : copyCard
+    copy_card : copyCard,
+    get_data: get_data
 }

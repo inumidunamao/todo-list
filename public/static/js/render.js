@@ -7,3 +7,7 @@ function renderCollection(data) {
     HTML += '</div>'
     $('#collection-list').html(HTML);
 }
+
+function renderErr(message) {
+	$('.err-div').html('<span>'+message+'</span>');
+}
